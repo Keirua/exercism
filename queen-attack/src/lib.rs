@@ -11,7 +11,7 @@ impl ChessPosition {
                 y:y
             });
         }
-        Err(String::from(""))
+        Err(String::from("Invalid board position"))
     }
 }
 
@@ -27,11 +27,8 @@ impl Queen {
     }
 
     pub fn can_attack(self, q:&Queen) -> bool {
-        if self.pos.x == q.pos.x || self.pos.y == q.pos.y {
-            return true;
-        }
-        let x_offset = (q.pos.x - self.pos.x).abs();
-        let y_offset = (q.pos.y - self.pos.y).abs();
-        return x_offset == y_offset;
+        let x_offset = (q.pos.x - self.pos.x);
+        let y_offset = (q.pos.y - self.pos.y);
+        return x_offset == 0 || y_offset == 0 || x_offset.abs() == y_offset.abs();
     }
 }
