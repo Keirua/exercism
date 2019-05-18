@@ -42,7 +42,7 @@ For this exercise you should not use this function but just other basic tools in
 
 ## Hints
 
-[Slices](https://doc.rust-lang.org/book/second-edition/ch04-03-slices.html) have additionally to
+[Slices](https://doc.rust-lang.org/book/2018-edition/ch04-03-slices.html) have additionally to
 the normal element access via indexing (slice[index]) many useful functions like
 [split_at](https://doc.rust-lang.org/std/primitive.slice.html#method.split_at) or [getting
 subslices](https://doc.rust-lang.org/std/primitive.slice.html#method.get) (slice[start..end]).
@@ -61,7 +61,12 @@ are some additional things you could try.
 - Additionally this find function can work not only on slices, but at the
   same time also on a Vec or an Array.
 
-You can find tests (commented out) for these bonus tasks in the test file.
+To run the bonus tests, remove the `#[ignore]` flag and execute the tests with
+the `generic` feature, like this:
+
+```bash
+$ cargo test --features generic
+```
 
 Then please share your thoughts in a comment on the submission. Did this
 experiment make the code better? Worse? Did you learn anything from it?
@@ -87,24 +92,45 @@ Execute the tests with:
 $ cargo test
 ```
 
-All but the first test have been ignored.  After you get the first test to
-pass, remove the ignore flag (`#[ignore]`) from the next test and get the tests
-to pass again.  The test file is located in the `tests` directory.   You can
-also remove the ignore flag from all the tests to get them to run all at once
-if you wish.
+All but the first test have been ignored. After you get the first test to
+pass, open the tests source file which is located in the `tests` directory
+and remove the `#[ignore]` flag from the next test and get the tests to pass
+again. Each separate test is a function with `#[test]` flag above it.
+Continue, until you pass every test.
 
-Make sure to read the [Modules](https://doc.rust-lang.org/book/second-edition/ch07-00-modules.html) chapter if you
+If you wish to run all tests without editing the tests source file, use:
+
+```bash
+$ cargo test -- --ignored
+```
+
+To run a specific test, for example `some_test`, you can use:
+
+```bash
+$ cargo test some_test
+```
+
+If the specific test is ignored use:
+
+```bash
+$ cargo test some_test -- --ignored
+```
+
+To learn more about Rust tests refer to the [online test documentation][rust-tests]
+
+Make sure to read the [Modules](https://doc.rust-lang.org/book/2018-edition/ch07-00-modules.html) chapter if you
 haven't already, it will help you with organizing your files.
 
 ## Feedback, Issues, Pull Requests
 
-The [exercism/rust](https://github.com/exercism/rust) repository on GitHub is the home for all of the Rust exercises. If you have feedback about an exercise, or want to help implement new exercises, head over there and create an issue. Members of the [rust track team](https://github.com/orgs/exercism/teams/rust) are happy to help!
+The [exercism/rust](https://github.com/exercism/rust) repository on GitHub is the home for all of the Rust exercises. If you have feedback about an exercise, or want to help implement new exercises, head over there and create an issue. Members of the rust track team are happy to help!
 
 If you want to know more about Exercism, take a look at the [contribution guide](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md).
 
-[help-page]: http://exercism.io/languages/rust
-[modules]: https://doc.rust-lang.org/book/second-edition/ch07-00-modules.html
-[cargo]: https://doc.rust-lang.org/book/second-edition/ch14-00-more-about-cargo.html
+[help-page]: https://exercism.io/tracks/rust/learning
+[modules]: https://doc.rust-lang.org/book/2018-edition/ch07-00-modules.html
+[cargo]: https://doc.rust-lang.org/book/2018-edition/ch14-00-more-about-cargo.html
+[rust-tests]: https://doc.rust-lang.org/book/2018-edition/ch11-02-running-tests.html
 
 ## Source
 
